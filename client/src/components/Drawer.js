@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser, appLoading } from "../store/actions/users";
-import { Redirect } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
@@ -25,11 +24,6 @@ export default function TemporaryDrawer(props) {
   const dispatch = useDispatch();
   const userRedux = useSelector((state) => state.user);
 
-  let redirect = null;
-  if (!userRedux.isAuth) {
-    redirect = <Redirect to="/" />;
-  }
-
   let redirectUrl = window.location.href.includes("localhost")
     ? process.env.REACT_APP_DEV_IP + ":3000"
     : process.env.REACT_APP_PROD_IP;
@@ -41,11 +35,10 @@ export default function TemporaryDrawer(props) {
       onClick={props.toggleDrawer(false)}
       onKeyDown={props.toggleDrawer(false)}
     >
-      {redirect}
       {userRedux.isAuth ? (
         // Authorized is true
         <List>
-          {["Home", "Video Manager", "FAQ"].map((text, index) => (
+          {["Home",].map((text, index) => (
             <ListItem
               button
               component="a"

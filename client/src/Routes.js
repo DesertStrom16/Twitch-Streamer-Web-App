@@ -5,6 +5,7 @@ import Home from "./screens/home/Home";
 import LoadingPage from "./screens/home/LoadingPage";
 import LandingPage from "./screens/home/LandingPage";
 import VideoManager from "./screens/video-manager/VideoManager";
+import HowItWorks from "./screens/home/HowItWorks";
 
 export default function Routes() {
   const userRedux = useSelector((state) => state.user);
@@ -15,6 +16,10 @@ export default function Routes() {
         {/* Main path, if authorized "/" redirects to "/home", otherwise LandingPage is rendered */}
         <Route path="/" exact>
           {userRedux.isAuth ? <Redirect to="/home" /> : <LandingPage />}
+        </Route>
+        {/* How It Works path, if authorized then user is redirected to "/home", otherwise HowItWorks is rendered */}
+        <Route path="/how-it-works" exact>
+          {userRedux.isAuth ? <Redirect to="/" /> : <HowItWorks />}
         </Route>
         {/* Redirect if "/home" is requested but user is not authorized */}
         <Route path="/home" exact>
