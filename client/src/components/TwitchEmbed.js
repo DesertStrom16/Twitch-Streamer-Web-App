@@ -19,13 +19,13 @@ export default function TwitchEmbed(props) {
       };
       const player = new window.Twitch.Player("player-id", options);
 
-      // player.addEventListener(window.Twitch.Player.READY, () => {
-      //   console.log("Ready!");
-      //   player.pause();
-      // });
-      // player.addEventListener(window.Twitch.Player.PLAYING, () => {
-      //   console.log("Playing!");
-      // });
+      player.addEventListener(window.Twitch.Player.READY, () => {
+        console.log("Ready!");
+        player.pause();
+      });
+      player.addEventListener(window.Twitch.Player.PLAYING, () => {
+        console.log("Playing!");
+      });
     };
 
     return () => {
@@ -43,6 +43,8 @@ export default function TwitchEmbed(props) {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
+        height: 450,
+        overflow: "hidden"
       }}
     >
       <div id="player-id"></div>

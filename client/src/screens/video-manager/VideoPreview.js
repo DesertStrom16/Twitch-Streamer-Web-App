@@ -46,7 +46,7 @@ export default function VideoPreview() {
         {/* {videoRedux.video
           ? videoRedux.video.data.map((vid, index) => console.log(vid, index))
           : null} */}
-          
+
         {videoRedux.video
           ? videoRedux.video.data.map((vid, index) => (
               <VideoItem key={Math.random()} videoData={vid} />
@@ -64,34 +64,31 @@ export default function VideoPreview() {
           justifyContent="center"
           alignItems="center"
           width="800px"
-          height="450px"
-          borderRadius={10}
+          height="445px"
+          borderRadius={5}
           border="4px solid #EEEEEE"
           overflow="hidden"
         >
           {videoRedux.preview ? (
-            <TwitchEmbed id={videoRedux.preview} />
+            <TwitchEmbed id={videoRedux.preview.id} />
           ) : (
             "Click a Video to Preview!"
           )}
         </Box>
-        <Box
-          display="flex"
-          flexGrow="1"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Button
-            variant="contained"
-            color="secondary"
-            style={{ marginRight: 15 }}
+        {videoRedux.preview ? (
+          <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="space-evenly"
+            paddingLeft={2}
+            height={100}
+            marginTop={1}
           >
-            Back
-          </Button>
-          <Button variant="contained" color="primary">
-            Proceed With X Videos
-          </Button>
-        </Box>
+            <h3 style={{margin: 0, color: "#3f51b5"}}>{videoRedux.preview.title}</h3>
+            <h4 style={{margin: 0}}>{videoRedux.preview.duration}</h4>
+            <p style={{margin: 0}}>{videoRedux.preview.description}</p>
+          </Box>
+        ) : null}
       </Box>
     </div>
   );

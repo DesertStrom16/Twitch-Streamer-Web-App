@@ -49,7 +49,7 @@ export default function VideoItem(props) {
           variant="contained"
           color="secondary"
           style={{ marginBottom: 7 }}
-          onClick={() => dispatch(previewVideo(props.videoData.id))}
+          onClick={() => dispatch(previewVideo(props.videoData))}
         >
           Preview
         </Button>
