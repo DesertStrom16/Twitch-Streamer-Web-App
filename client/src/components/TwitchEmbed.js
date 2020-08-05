@@ -14,24 +14,27 @@ export default function TwitchEmbed(props) {
       let options = {
         width: "800",
         height: "450",
-        video: "592572087",
+        video: props.id,
         parent: ["localhost"],
       };
       const player = new window.Twitch.Player("player-id", options);
 
-      player.addEventListener(window.Twitch.Player.READY, () => {
-        console.log("Ready!");
-        player.pause();
-      });
-      player.addEventListener(window.Twitch.Player.PLAYING, () => {
-        console.log("Playing!");
-      });
+      // player.addEventListener(window.Twitch.Player.READY, () => {
+      //   console.log("Ready!");
+      //   player.pause();
+      // });
+      // player.addEventListener(window.Twitch.Player.PLAYING, () => {
+      //   console.log("Playing!");
+      // });
     };
 
     return () => {
+      document.querySelector("#player-id iframe").remove()
       document.body.removeChild(script);
+      console.log("Cleanup")
+      console.log(props.id)
     };
-  }, []);
+  }, [props.id]);
 
   return (
     <div
