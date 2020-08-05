@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     justifyContent: "space-around",
     width: "1150px",
-    height: "700px",
+    height: "625px",
     background: "#BBBBBB",
     borderRadius: "6px",
     boxSizing: "border-box",

@@ -15,7 +15,7 @@ export default function TwitchEmbed(props) {
         width: "800",
         height: "450",
         video: props.id,
-        parent: ["localhost, 3.14.71.212"],
+        parent: ["localhost"],
       };
       const player = new window.Twitch.Player("player-id", options);
 

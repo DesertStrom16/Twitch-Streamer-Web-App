@@ -13,7 +13,7 @@ export default function LoginTwitch() {
 
   return (
     <Box display="flex" flexDirection="column" alignItems="center" width={300}>
-      <h3 style={{ marginBottom: 15, marginTop: 10 }}>Login With Twitch</h3>
+      <h3 style={{ marginBottom: 8, marginTop: 10 }}>Login With Twitch</h3>
       <p style={{ margin: 0, marginBottom: 20, textAlign: "center" }}>
         We use the Twitch API to be able to fetch all of your videos and profile
         information. By logging in, you are only granting us access to your

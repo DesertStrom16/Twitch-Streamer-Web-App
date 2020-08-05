@@ -16,14 +16,7 @@ export default function VideoManager() {
   return (
     <div className={classes.root}>
       <Navbar title={"Video Manager"} />
-      <Box
-        display="flex"
-        justifyContent="center"
-        width="100%"
-        style={{ marginTop: 15, marginBottom: 10 }}
-      ></Box>
-
-      <Box display="flex" width="100%" justifyContent="center">
+      <Box display="flex" width="100%" justifyContent="center" marginTop="12px">
         <VideoPreview />
       </Box>
     </div>
